@@ -7,10 +7,9 @@ class ReactCanvas extends React.Component {
   constructor(props){
     super(props);
     
-    var canvas , ctx , img = new Image();
-
+    this.canvas , this.ctx , this.ctxImage = new Image();
     this.state={
-        currentImage: props.image
+        currentImage: this.props.image
     }
   }
 
@@ -25,9 +24,8 @@ class ReactCanvas extends React.Component {
   }
   
   _updateCanvas(){ 
-    console.log(this.img);
-    //this.img.src='https://images-cdn.9gag.com/photo/azbEgBK_700b_v1.jpg';
-    //this.ctx.drawImage(this.img,0,0);
+    this.ctxImage.src=this.state.currentImage;
+    this.ctx.drawImage(this.ctxImage,0,0);
   }
 
   render() {
