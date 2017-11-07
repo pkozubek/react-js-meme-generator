@@ -24,6 +24,7 @@ class ReactCanvas extends React.Component {
     this.ctxImage.src=this.state.currentImage;
     this.ctx.drawImage(this.ctxImage,0,0,this.canvas.width,this.canvas.height);
     this._drawText(this.props.topText,20,20);
+    this._drawText(this.props.lowText,20,this.canvas.height-20);
   }
 
   componentWillReceiveProps(){

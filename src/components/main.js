@@ -19,6 +19,9 @@ class MainComponent extends React.Component {
         topText: '',
         lowText: ''
     };
+
+    this._handleLowInputChange = this._handleLowInputChange.bind(this);
+    this._handleTopInputChange = this._handleTopInputChange.bind(this);
   }
  
   _returnState(index){
@@ -34,8 +37,16 @@ class MainComponent extends React.Component {
     });
   }
 
-  _handleInputChange(){
-    
+  _handleTopInputChange(event){
+    this.setState({
+      topText:  event.target.value
+    })
+  }
+
+  _handleLowInputChange(event){
+    this.setState({
+      lowText:  event.target.value
+    })
   }
 
   render() {
@@ -49,11 +60,11 @@ class MainComponent extends React.Component {
         </div>
         <div>
           {console.log(this.state.indexOfImage)}
-          <ReactCanvas image={this.imageCol[this.state.indexOfImage]} topText={this.state.topText} lowsign={'cos'}/>
+          <ReactCanvas image={this.imageCol[this.state.indexOfImage]} topText={this.state.topText} lowText={this.state.lowText}/>
         </div>
         <div>
-          <input/><ReactButton name='remove'/>
-          <input/><ReactButton name='remove'/> <br/>
+          <input maxLength='25' value ={this.state.topText} onChange={this._handleTopInputChange} placeholder='top text' type='text'/><ReactButton name='remove'/>
+          <input maxLength='25' value ={this.state.lowText} onChange={this._handleLowInputChange} placeholder='low text'  type='text'/><ReactButton name='remove'/> <br/>
           <ReactButton name='generate meme'/>
         </div>
       </div>
