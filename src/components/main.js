@@ -16,24 +16,26 @@ class MainComponent extends React.Component {
 'https://imgflip.com/s/meme/Futurama-Fry.jpg']
     this.state={
         indexOfImage : 0,
-        topText: 'cos',
+        topText: '',
         lowText: ''
     };
   }
-  
-  _changeImage(){
-    this.state.currentImage
-  }
-
+ 
   _returnState(index){
-    if(index != this.state.indexOfImage)
+    if(index !== this.state.indexOfImage)
       return 'unmarked'
     else
       return 'marked';  
   }
   
-  _handleImageClick(){
-    console.log('click');
+  _handleImageClick(index){
+    this.setState({
+      indexOfImage: index
+    });
+  }
+
+  _handleInputChange(){
+    
   }
 
   render() {
@@ -42,10 +44,11 @@ class MainComponent extends React.Component {
       <div>
         <div>
           {this.imageCol.map((e,index) => {
-            return <Image value ={index} source={this.imageCol[index]} key={index} style={this._returnState(index)} />
+            return <Image onClick={ ()=> this._handleImageClick(index) } value ={index} source={this.imageCol[index]} key={index} style={this._returnState(index)} />
           })}
         </div>
         <div>
+          {console.log(this.state.indexOfImage)}
           <ReactCanvas image={this.imageCol[this.state.indexOfImage]} topText={this.state.topText} lowsign={'cos'}/>
         </div>
         <div>

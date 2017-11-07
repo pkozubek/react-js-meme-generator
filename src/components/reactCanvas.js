@@ -21,7 +21,15 @@ class ReactCanvas extends React.Component {
   }
 
   componentDidUpdate(){
-    this._updateCanvas();
+    this.ctxImage.src=this.state.currentImage;
+    this.ctx.drawImage(this.ctxImage,0,0,this.canvas.width,this.canvas.height);
+    this._drawText(this.props.topText,20,20);
+  }
+
+  componentWillReceiveProps(){
+      this.setState({
+          currentImage: this.props.image
+      })
   }
   
   _updateCanvas(){ 
