@@ -2,4 +2,5 @@ canvas{
     border: solid 1px black;
     width: 400px;
     height: 400px;
+    margin: 5px;
 }

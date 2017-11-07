@@ -2,14 +2,13 @@ import React from "react";
 
 class ReactButton extends React.Component {
   
-  /* constructor(){
-    super();
-    
-  }*/
+  constructor(props){
+    super(props);
+  }
   
   render() {
     return (
-      <button>Add element</button>
+      <button>{this.props.name}</button>
     );
   }
 }

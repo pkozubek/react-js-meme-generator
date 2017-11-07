@@ -1,5 +1,4 @@
 import React from "react";
-import findDOMNode from "react-dom";
 import './reactCanvas.css';
 
 class ReactCanvas extends React.Component {
@@ -16,6 +15,8 @@ class ReactCanvas extends React.Component {
   componentDidMount(){
     this.canvas = document.getElementById('memesCanvas');
     this.ctx = this.canvas.getContext('2d');
+    this.ctx.font = '16px Verdana';
+    this.ctx.fillStyle = 'white';
     this._updateCanvas();
   }
 
@@ -25,7 +26,13 @@ class ReactCanvas extends React.Component {
   
   _updateCanvas(){ 
     this.ctxImage.src=this.state.currentImage;
-    this.ctx.drawImage(this.ctxImage,0,0);
+    this.ctx.drawImage(this.ctxImage,0,0,this.canvas.width,this.canvas.height);
+    this._drawText(this.props.topText,20,20);
+  }
+
+  _drawText(text,x,y){
+    this.ctx.fillText(text,x,y);
+    this.ctx.strokeText(text,x,y);
   }
 
   render() {
