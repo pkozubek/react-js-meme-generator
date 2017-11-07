@@ -42,7 +42,7 @@ class MainComponent extends React.Component {
       <div>
         <div>
           {this.imageCol.map((e,index) => {
-            return <Image onClick={this._handleImageClick()} source={this.imageCol[index]} key={index} style={this._returnState(index)} />
+            return <Image value ={index} source={this.imageCol[index]} key={index} style={this._returnState(index)} />
           })}
         </div>
         <div>

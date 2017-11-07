@@ -6,10 +6,10 @@ class Image extends React.Component {
   constructor(props){
     super(props);
   }
-  
+
   render() {
     return (
-      <img className={this.props.style} src={this.props.source}/>
+      <img value ={this.props.value} onClick={ ()=>{console.log('click'+this.props.value)} } className={this.props.style} src={this.props.source}/>
     );
   }
 }
