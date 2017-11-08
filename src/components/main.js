@@ -50,6 +50,30 @@ class MainComponent extends React.Component {
     })
   }
 
+ _resetInput(input){
+    if(input=='lowInput'){
+      this.setState({
+        lowText : ""
+      })
+    }
+    else if(input == 'topInput'){
+      this.setState({
+        topText : ""
+      })
+    }
+  }
+
+  _handleSaveButton(){
+    var canvas = document.getElementById('memesCanvas');
+    console.log(canvas);
+    
+    var canvasimage=document.createElement("img");
+    canvasimage.setAttribute('crossOrigin','anonymous');
+    canvasimage = canvas.toDataURL('image/png');
+    canvasimage.replace(/^data:image\/[^;]/, 'data:application/octet-stream');
+    alert(canvasimage);
+  }
+
   render() {
 
     return (
@@ -64,15 +88,14 @@ class MainComponent extends React.Component {
           })}
         </div>
         <div>
-          {console.log(this.state.indexOfImage)}
           <ReactCanvas image={this.imageCol[this.state.indexOfImage]} topText={this.state.topText} lowText={this.state.lowText}/>
         </div>
         <div>
           <input maxLength='30' value ={this.state.topText} onChange={this._handleTopInputChange} placeholder='top text' type='text'/>
-          <ReactButton styleName={'remove'} name='remove'/>
+          <ReactButton onClick={() => this._resetInput('topInput')} styleName={'remove'} name='remove'/>
           <input maxLength='30' value ={this.state.lowText} onChange={this._handleLowInputChange} placeholder='low text'  type='text'/>
-          <ReactButton styleName={'remove'} name='remove'/><br/>
-          <ReactButton styleName={'generate-meme'} name='generate meme'/>
+          <ReactButton onClick={() => this._resetInput('lowInput')} styleName={'remove'} name='remove'/><br/>
+          <ReactButton onClick={() => this._handleSaveButton()} styleName={'generate-meme'} name='generate meme'/>
         </div>
       </main>
       </div>
