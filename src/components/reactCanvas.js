@@ -22,17 +22,19 @@ class ReactCanvas extends React.Component {
     this.ctx.fillStyle = 'white';
 
     this.ctxImage.src=this.props.image;
-    //console.log(this.props.image);
     
+    console.log('i mounted with image ' + this.ctxImage.src);
     this._redrawCanvas();
   }
 
   componentDidUpdate(){
+    console.log('update');
     this.ctxImage.src=this.props.image;
     this._redrawCanvas();
   }
   
   _redrawCanvas(){ 
+    console.log('redraw: i am redrawing '+this.ctxImage.src);
     this.ctx.drawImage(this.ctxImage,0,0,this.canvas.width,this.canvas.height);
     this._drawText(this.props.topText,20,20);
     this._drawText(this.props.lowText,20,this.canvas.height-20);
@@ -44,6 +46,10 @@ class ReactCanvas extends React.Component {
   }
 
   render() {
+    {
+      console.log('render'+this.props.image);
+      //this.forceUpdate();
+    }
     return (
       <canvas id='memesCanvas'/>
     );
