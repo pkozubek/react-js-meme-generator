@@ -7,6 +7,7 @@ class ReactCanvas extends React.Component {
     super(props);
     
     this.canvas , this.ctx , this.ctxImage = new Image();
+    this.ctxImage.src = this.props.image;
   }
 
   componentDidMount(){
@@ -14,22 +15,27 @@ class ReactCanvas extends React.Component {
     this.canvas.width = 400;
     this.canvas.height = 400;
     this.ctx = this.canvas.getContext('2d');
+    
+    //this.forceUpdate();
+
     this.ctx.font = '20px Verdana';
     this.ctx.fillStyle = 'white';
+
     this.ctxImage.src=this.props.image;
-    this._updateCanvas();
+    //console.log(this.props.image);
+    
+    this._redrawCanvas();
   }
 
   componentDidUpdate(){
     this.ctxImage.src=this.props.image;
+    this._redrawCanvas();
+  }
+  
+  _redrawCanvas(){ 
     this.ctx.drawImage(this.ctxImage,0,0,this.canvas.width,this.canvas.height);
     this._drawText(this.props.topText,20,20);
     this._drawText(this.props.lowText,20,this.canvas.height-20);
-  }
-  
-  _updateCanvas(){ 
-    this.ctx.drawImage(this.ctxImage,0,0,this.canvas.width,this.canvas.height);
-    this._drawText(this.props.topText,20,20);
   }
 
   _drawText(text,x,y){

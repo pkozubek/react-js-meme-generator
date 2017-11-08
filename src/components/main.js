@@ -4,19 +4,23 @@ import ReactButton from './reactButton'
 import ReactCanvas from './reactCanvas'
 import Image from './image'
 import './main.css'
+import image1 from './img/sad.jpg'
+import image2 from './img/mad.jpg'
+import image3 from './img/fry.jpg'
+import image4 from './img/jobs.jpg'
+import image5 from './img/phone.jpg'
+import image6 from './img/wonka.jpg'
+
 
 class MainComponent extends React.Component {
   
   constructor(){
     super();
-    this.imageCol = ['http://bestmememaker.weebly.com/uploads/4/1/0/7/41076499/8585768_orig.jpg',
-  'https://memegenerator.net/img/images/250x250/166088/y-u-no.jpg',
-  'https://imgflip.com/s/meme/Creepy-Condescending-Wonka.jpg',
-'https://i.imgflip.com/17r4mi.jpg',
-'https://imgflip.com/s/meme/Steve-Jobs.jpg',
-'https://imgflip.com/s/meme/Futurama-Fry.jpg']
+    
+    this.imageCol = [image1,image2,image3,image4,image5,image6]
+
     this.state={
-        indexOfImage : 0,
+        indexOfImage : 2,
         topText: '',
         lowText: ''
     };
@@ -65,13 +69,12 @@ class MainComponent extends React.Component {
 
   _handleSaveButton(){
     var canvas = document.getElementById('memesCanvas');
-    console.log(canvas);
-    
     var canvasimage=document.createElement("img");
-    canvasimage.setAttribute('crossOrigin','anonymous');
     canvasimage = canvas.toDataURL('image/png');
-    canvasimage.replace(/^data:image\/[^;]/, 'data:application/octet-stream');
-    alert(canvasimage);
+
+   const w = window.open('about:blank','img');
+    w.document.write('<iframe src="' + canvasimage + '" frameborder="0" style="border:0; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%;" allowfullscreen></iframe>')
+    
   }
 
   render() {
