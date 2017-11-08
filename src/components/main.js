@@ -3,6 +3,7 @@ import React from "react";
 import ReactButton from './reactButton'
 import ReactCanvas from './reactCanvas'
 import Image from './image'
+import './main.css'
 
 class MainComponent extends React.Component {
   
@@ -53,6 +54,10 @@ class MainComponent extends React.Component {
 
     return (
       <div>
+      <header className="App-header">
+        <h1>Meme generator</h1>
+      </header>
+      <main>
         <div>
           {this.imageCol.map((e,index) => {
             return <Image onClick={ ()=> this._handleImageClick(index) } value ={index} source={this.imageCol[index]} key={index} style={this._returnState(index)} />
@@ -63,10 +68,13 @@ class MainComponent extends React.Component {
           <ReactCanvas image={this.imageCol[this.state.indexOfImage]} topText={this.state.topText} lowText={this.state.lowText}/>
         </div>
         <div>
-          <input maxLength='25' value ={this.state.topText} onChange={this._handleTopInputChange} placeholder='top text' type='text'/><ReactButton name='remove'/>
-          <input maxLength='25' value ={this.state.lowText} onChange={this._handleLowInputChange} placeholder='low text'  type='text'/><ReactButton name='remove'/> <br/>
-          <ReactButton name='generate meme'/>
+          <input maxLength='30' value ={this.state.topText} onChange={this._handleTopInputChange} placeholder='top text' type='text'/>
+          <ReactButton styleName={'remove'} name='remove'/>
+          <input maxLength='30' value ={this.state.lowText} onChange={this._handleLowInputChange} placeholder='low text'  type='text'/>
+          <ReactButton styleName={'remove'} name='remove'/><br/>
+          <ReactButton styleName={'generate-meme'} name='generate meme'/>
         </div>
+      </main>
       </div>
     );
   }

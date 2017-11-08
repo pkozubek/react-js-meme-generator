@@ -1,0 +1,20 @@
+.remove{
+    background: #ffffff;
+    width: 30px;
+    height: 30px;
+    margin: 5px;
+}
+.remove img{
+    margin: 0;
+    padding: 0;
+    width: 15px;
+    height: 15px;
+}
+
+.generate-meme{
+    border-radius: 25px;
+    background: rgba(0, 0, 255, 0.67);
+    color: white;
+    padding: 15px;
+    font-size: 16px;
+}
