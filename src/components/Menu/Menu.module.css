@@ -1,0 +1,27 @@
+.Menu{
+    width: 100%;
+    background-color: deepskyblue;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.Menu nav{
+    text-align: right;
+}
+
+.MenuItem{
+    padding: 15px;
+    color: white;
+    text-decoration: none;
+}
+
+.MenuItem:hover{
+    background-color: cornflowerblue;
+}
+
+.ActiveItem{
+    padding: 15px;
+    background-color: white;
+    color: deepskyblue;
+    text-decoration: none;
+}

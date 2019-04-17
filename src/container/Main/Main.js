@@ -1,8 +1,8 @@
 import React from "react";
 
-import ReactButton from './reactButton'
-import ReactCanvas from './reactCanvas'
-import Image from './image'
+import ReactButton from '../../components/Button/reactButton'
+import ReactCanvas from '../../components/Canvas/reactCanvas'
+import Image from '../../components/Image/image'
 import './main.css'
 import image1 from './img/sad.jpg'
 import image2 from './img/mad.jpg'
