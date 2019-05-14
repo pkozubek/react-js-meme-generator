@@ -1,15 +1,18 @@
 import React from "react";
-import './reactCanvas.css';
+import './ReactCanvas.css';
 
 class ReactCanvas extends React.Component {
   
+  /*
   constructor(props){
     super(props);
     
-    this.canvas , this.ctx , this.ctxImage = new Image();
-    this.ctxImage.src = this.props.image;
+    //this.canvas , this.ctx , this.ctxImage = new Image();
+    //this.ctxImage.src = this.props.image;
   }
+  */
 
+  /*
   componentDidMount(){
     this.canvas = document.getElementById('memesCanvas');
     this.canvas.width = 400;
@@ -44,14 +47,35 @@ class ReactCanvas extends React.Component {
     this.ctx.fillText(text,x,y);
     this.ctx.strokeText(text,x,y);
   }
+  */
+
+  redrawCanvas = ()=>{
+    this.refs.canvas.width = 400;
+    this.refs.canvas.height = 400;
+    
+    const ctx = this.refs.canvas.getContext('2d');
+    ctx.clearRect(0, 0, this.props.width, this.props.height);
+    const image =  new Image();
+    image.src = this.props.image;
+    
+    image.onload=()=>{
+      ctx.drawImage(image,0,0, this.props.width, this.props.height);
+    }
+  }
+
+  componentDidMount(){
+    this.redrawCanvas();
+  }
+
+  componentDidUpdate(){
+    this.redrawCanvas();
+  }
 
   render() {
-    {
-      console.log('render'+this.props.image);
-      //this.forceUpdate();
-    }
     return (
-      <canvas id='memesCanvas'/>
+      <div>
+        <canvas ref="canvas"  />
+      </div>
     );
   }
 }

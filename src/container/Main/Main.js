@@ -1,34 +1,58 @@
 import React from "react";
 
+/*
 import ReactButton from '../../components/Button/reactButton'
 import ReactCanvas from '../../components/Canvas/reactCanvas'
 import Image from '../../components/Image/image'
-import './main.css'
-import image1 from './img/sad.jpg'
-import image2 from './img/mad.jpg'
-import image3 from './img/fry.jpg'
-import image4 from './img/jobs.jpg'
-import image5 from './img/phone.jpg'
-import image6 from './img/wonka.jpg'
+*/
 
+import './Main.css'
+
+import image1 from '../../assets/img/sad.jpg';
+import image2 from '../../assets/img/mad.jpg';
+import image3 from '../../assets/img/fry.jpg';
+import image4 from '../../assets/img/jobs.jpg';
+import image5 from '../../assets/img/phone.jpg';
+import image6 from '../../assets/img/wonka.jpg';
+
+import Images from '../../components/Images/Images';
+import ReactCanvas from '../../components/Canvas/ReactCanvas';
 
 class MainComponent extends React.Component {
   
   constructor(){
     super();
-    
     this.imageCol = [image1,image2,image3,image4,image5,image6]
-
-    this.state={
-        indexOfImage : 2,
-        topText: '',
-        lowText: ''
-    };
-
-    this._handleLowInputChange = this._handleLowInputChange.bind(this);
-    this._handleTopInputChange = this._handleTopInputChange.bind(this);
   }
- 
+
+  state = {
+    currentlySelected : 0
+  }
+  
+  imageClickHandler=(index)=>{
+    this.setState(
+      {
+        currentlySelected: index
+      }
+    )
+  }
+
+  render(){
+    return (
+    <div>
+      <Images 
+      imageClick = {this.imageClickHandler} 
+      imageArray = {this.imageCol} 
+      currentlySelected = {this.state.currentlySelected}/>
+      <ReactCanvas 
+      image = {this.imageCol[this.state.currentlySelected]}
+      width = '400'
+      height = '400'/>
+    </div>
+    )
+  }
+
+  /*
   _returnState(index){
     if(index !== this.state.indexOfImage)
       return 'unmarked'
@@ -104,6 +128,8 @@ class MainComponent extends React.Component {
       </div>
     );
   }
+  */
+
 }
 
 export default MainComponent;

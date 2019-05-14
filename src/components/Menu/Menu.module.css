@@ -1,6 +1,7 @@
 .Menu{
     width: 100%;
     background-color: deepskyblue;
+    border-bottom: 1px solid white;
     padding: 15px;
     box-sizing: border-box;
 }
@@ -22,6 +23,6 @@
 .ActiveItem{
     padding: 15px;
     background-color: white;
-    color: deepskyblue;
+    color: rgb(0, 191, 255);
     text-decoration: none;
 }

@@ -1,0 +1,10 @@
+.singleImg{
+    width: 75px;
+    height: 75px;
+    margin: 10px;
+}
+
+.marked{
+    border: 1px solid white;
+    box-shadow: 0 0 8px white;
+}
