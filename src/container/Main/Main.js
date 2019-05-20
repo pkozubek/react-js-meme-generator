@@ -1,5 +1,5 @@
 import React from "react";
-
+import Input from '../../components/Input/Input';
 /*
 import ReactButton from '../../components/Button/reactButton'
 import ReactCanvas from '../../components/Canvas/reactCanvas'
@@ -18,15 +18,14 @@ import image6 from '../../assets/img/wonka.jpg';
 import Images from '../../components/Images/Images';
 import ReactCanvas from '../../components/Canvas/ReactCanvas';
 
+const imageCol = [image1,image2,image3,image4,image5,image6];
+
 class MainComponent extends React.Component {
-  
-  constructor(){
-    super();
-    this.imageCol = [image1,image2,image3,image4,image5,image6]
-  }
 
   state = {
-    currentlySelected : 0
+    currentlySelected : 0,
+    topText: '',
+    bottomText: ''
   }
   
   imageClickHandler=(index)=>{
@@ -37,99 +36,58 @@ class MainComponent extends React.Component {
     )
   }
 
-  render(){
-    return (
-    <div>
-      <Images 
-      imageClick = {this.imageClickHandler} 
-      imageArray = {this.imageCol} 
-      currentlySelected = {this.state.currentlySelected}/>
-      <ReactCanvas 
-      image = {this.imageCol[this.state.currentlySelected]}
-      width = '400'
-      height = '400'/>
-    </div>
-    )
-  }
-
-  /*
-  _returnState(index){
-    if(index !== this.state.indexOfImage)
-      return 'unmarked'
-    else
-      return 'marked';  
-  }
-  
-  _handleImageClick(index){
-    this.setState({
-      indexOfImage: index
-    });
-  }
-
-  _handleTopInputChange(event){
+  handleTopInputChange = (event)=>{
     this.setState({
       topText:  event.target.value
     })
   }
 
-  _handleLowInputChange(event){
+  handleBottomInputChange =(event)=>{
     this.setState({
-      lowText:  event.target.value
+      bottomText:  event.target.value
     })
   }
 
- _resetInput(input){
-    if(input=='lowInput'){
+  resetText = (place)=>{
+    if(place === 'top'){
       this.setState({
-        lowText : ""
-      })
+        topText:  ''
+      });
     }
-    else if(input == 'topInput'){
+    if(place === 'bottom'){
       this.setState({
-        topText : ""
-      })
+        bottomText:  ''
+      });
     }
   }
 
-  _handleSaveButton(){
-    var canvas = document.getElementById('memesCanvas');
-    var canvasimage=document.createElement("img");
-    canvasimage = canvas.toDataURL('image/png');
-
-   const w = window.open('about:blank','img');
-    w.document.write('<iframe src="' + canvasimage + '" frameborder="0" style="border:0; top:0px; left:0px; bottom:0px; right:0px; width:100%; height:100%;" allowfullscreen></iframe>')
-    
-  }
-
-  render() {
-
+  render(){
     return (
-      <div>
-      <header className="App-header">
-        <h1>Meme generator</h1>
-      </header>
-      <main>
-        <div>
-          {this.imageCol.map((e,index) => {
-            return <Image onClick={ ()=> this._handleImageClick(index) } value ={index} source={this.imageCol[index]} key={index} style={this._returnState(index)} />
-          })}
-        </div>
-        <div>
-          <ReactCanvas image={this.imageCol[this.state.indexOfImage]} topText={this.state.topText} lowText={this.state.lowText}/>
-        </div>
-        <div>
-          <input maxLength='30' value ={this.state.topText} onChange={this._handleTopInputChange} placeholder='top text' type='text'/>
-          <ReactButton onClick={() => this._resetInput('topInput')} styleName={'remove'} name='remove'/>
-          <input maxLength='30' value ={this.state.lowText} onChange={this._handleLowInputChange} placeholder='low text'  type='text'/>
-          <ReactButton onClick={() => this._resetInput('lowInput')} styleName={'remove'} name='remove'/><br/>
-          <ReactButton onClick={() => this._handleSaveButton()} styleName={'generate-meme'} name='generate meme'/>
-        </div>
-      </main>
+      <div>      
+        <Images 
+        imageClick = {this.imageClickHandler} 
+        imageArray = {imageCol} 
+        currentlySelected = {this.state.currentlySelected}/>
+        <Input
+        val = {this.state.topText}
+        change = {this.handleTopInputChange} 
+        delete = {()=>this.resetText('top')}
+        description = 'Top text: '/>
+        <ReactCanvas 
+        image = {imageCol[this.state.currentlySelected]}
+        width = '400'
+        height = '400'
+        topText = {this.state.topText}
+        bottomText = {this.state.bottomText}
+        />
+        <Input 
+        val = {this.state.bottomText}
+        delete = {()=>this.resetText('bottom')}
+        change = {this.handleBottomInputChange}
+        description = 'Bottom text: '/>
       </div>
-    );
+    )
   }
-  */
-
 }
 
 export default MainComponent;
