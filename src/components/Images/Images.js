@@ -1,10 +1,10 @@
 import React from 'react';
 import SingleImage from './SingleImage/SingleImage';
-import './Images.css';
+import CustomizationTab from '../CustomizationTab/CustomizationTab';
 
 const images = (props)=>{
     return (
-        <div className = 'imageTab'>
+        <CustomizationTab header = 'Choose image:'>
             {props.imageArray.map((img, index)=>{
                 return (<SingleImage 
                 onClick = {()=>props.imageClick(index)} 
@@ -13,7 +13,7 @@ const images = (props)=>{
                 index = {index}
                 key = {index}/>);
             })}
-        </div>
+        </CustomizationTab>
     )
 }
 

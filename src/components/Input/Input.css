@@ -1,0 +1,14 @@
+.InputContainer{
+    margin: 10px auto;
+    width: 80%;
+    text-align: center;
+}
+
+.InputWrite{
+    margin: 0 auto;
+    padding: 5px;
+    border: none;
+    border-bottom: 1px solid black;
+    width: 40%;
+    text-align: center;
+}

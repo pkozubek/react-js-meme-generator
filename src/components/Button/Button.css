@@ -1,0 +1,38 @@
+button{
+    background: transparent;
+    border: none;
+    margin: 5px;
+    font-size: 25px;
+    transition: 0.2s;
+}
+
+.Cancel{
+    width: 35px;
+    height: 35px;
+}
+
+.Cancel:hover{
+    transition: 0.2s;
+    color: red;
+}
+
+
+.Success{
+    padding: 25px;
+    margin: 15px;
+}
+
+.Success:hover{
+    color: lawngreen;
+    transition: 0.2s;
+}
+
+.Success i{
+    padding: 5px;
+    font-size: 32px;
+}
+
+.Options:hover{
+    color: lightskyblue;
+}
+

@@ -1,7 +1,6 @@
 .Menu{
     width: 100%;
-    background-color: deepskyblue;
-    border-bottom: 1px solid white;
+    background-color: black;
     padding: 15px;
     box-sizing: border-box;
 }
@@ -17,12 +16,13 @@
 }
 
 .MenuItem:hover{
-    background-color: cornflowerblue;
+    background-color: rgb(83, 83, 83);
+    color: white;
 }
 
 .ActiveItem{
     padding: 15px;
     background-color: white;
-    color: rgb(0, 191, 255);
+    color: black;
     text-decoration: none;
 }

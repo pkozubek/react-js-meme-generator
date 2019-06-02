@@ -1,8 +1,8 @@
 import React from "react";
 import './ReactCanvas.css';
 
-const WIDTH = 400;
-const HEIGHT = 400;
+const WIDTH = 350;
+const HEIGHT = 350;
 
 class ReactCanvas extends React.Component {
 

@@ -4,7 +4,8 @@
 }
 
 body{
-    background: #fffdc4;
+    background: white;
+    font-family: 'Baloo Da', cursive;
 }
 
 header{
@@ -21,9 +22,21 @@ header h1{
 }
 
 main{
-    width: 100%;
+    width: vw;
+    height: vh;
     justify-content: center;
     text-align: center;
+}
+
+.customization{
+    width: 40%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.visualization{
+    width: 60%;
+    display: inline-block;
 }
 
 input{

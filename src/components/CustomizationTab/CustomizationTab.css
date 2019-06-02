@@ -1,0 +1,15 @@
+.CustomizationTab{
+    margin: 10px auto;
+    padding: 10px;
+    width: 90%;
+    height: auto;
+    background: white;
+    box-shadow: 0 0 25px lightgrey;
+}
+
+.CustomizationTab h2{
+    font-size: 1.1em;
+    margin: 5px;
+    border-bottom: 1px solid lightgrey;
+    color: black;
+}
