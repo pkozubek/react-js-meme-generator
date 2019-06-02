@@ -14,7 +14,7 @@ const input = (props)=>{
                 <Button 
                 type = 'options' 
                 click = {props.optionClick}/>
-                <input className = 'InputWrite' placeholder = {props.description} value = {props.val} onChange = {props.change}>
+                <input name = {props.name} className = 'InputWrite' placeholder = {props.description} value = {props.val} onChange = {props.change}>
                 </input>
                 <Button 
                 click = {props.delete}

@@ -27,24 +27,17 @@ class MainComponent extends React.Component {
   }
   
   imageClickHandler=(index)=>{
-    this.setState(
-      {
+    this.setState({
         currentlySelected: index
       }
     )
   }
 
-  handleTopInputChange = (event)=>{
+  handleInputChange = (event)=>{
     this.setState({
-      topText:  event.target.value
-    })
-  }
-
-  handleBottomInputChange =(event)=>{
-    this.setState({
-      bottomText:  event.target.value
-    })
-  }
+      [event.target.name] : event.target.value
+    });
+   }
 
   resetText = (place)=>{
     if(place === 'top'){
@@ -60,28 +53,27 @@ class MainComponent extends React.Component {
   }
 
   handleOptionsShow = ()=>{
-    console.log('test');
-
     this.setState({
       showOptions: !this.state.showOptions});
-    }
+  }
 
   render(){
     return (
       <main>
         <div className = 'customization'>      
-        <Images 
-          imageClick = {this.imageClickHandler} 
-          imageArray = {imageCol} 
-          currentlySelected = {this.state.currentlySelected}/>
-        <Button type = 'success'>Generate!</Button>
+          <Images 
+            imageClick = {this.imageClickHandler} 
+            imageArray = {imageCol} 
+            currentlySelected = {this.state.currentlySelected}/>
+          <Button type = 'success'>Generate!</Button>
         </div>
         <div className = 'visualization'>
           <Input
+          name = 'topText'
           type = 'input'
           optionClick = {this.handleOptionsShow}
           val = {this.state.topText}
-          change = {this.handleTopInputChange} 
+          change = {this.handleInputChange} 
           delete = {()=>this.resetText('top')}
           description = 'Top text'/>
           <ReactCanvas 
@@ -92,17 +84,17 @@ class MainComponent extends React.Component {
           bottomText = {this.state.bottomText}
           />
           <Input 
+          name = 'bottomText'
           type = 'input'
           optionClick = {this.handleOptionsShow} 
           val = {this.state.bottomText}
           delete = {()=>this.resetText('bottom')}
-          change = {this.handleBottomInputChange}
+          change = {this.handleInputChange}
           description = 'Bottom text'/>
           <CustomizationForm 
           show = {this.state.showOptions}
           click = {this.handleOptionsShow} />
         </div>
-       
       </main>
     )
   }
