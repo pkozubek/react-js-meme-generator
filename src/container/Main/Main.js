@@ -22,8 +22,7 @@ class MainComponent extends React.Component {
   state = {
     currentlySelected : 0,
     topText: '',
-    bottomText: '',
-    showOptions: false
+    bottomText: ''
   }
   
   imageClickHandler=(index)=>{
@@ -50,11 +49,6 @@ class MainComponent extends React.Component {
         bottomText:  ''
       });
     }
-  }
-
-  handleOptionsShow = ()=>{
-    this.setState({
-      showOptions: !this.state.showOptions});
   }
 
   render(){
@@ -88,9 +82,7 @@ class MainComponent extends React.Component {
           delete = {()=>this.resetText('bottom')}
           change = {this.handleInputChange}
           description = 'Bottom text'/>
-          <CustomizationForm 
-          show = {this.state.showOptions}
-          click = {this.handleOptionsShow} />
+          <CustomizationForm/>
           <Button type = 'success'>Generate!</Button>
         </div>
       </main>

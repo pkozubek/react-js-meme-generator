@@ -22,7 +22,7 @@ const button = (props) =>{
             </button>
             break;
         case('options'):
-            button = <button onClick = {props.setOptions} className = 'Options'>
+            button = <button onClick = {()=>props.setOptions('left')} className = 'Options'>
                 <i className="fa fa-cog"></i>
             </button>
             break;
@@ -39,7 +39,7 @@ const button = (props) =>{
 
 const mapDispatchToProps = dispatch =>{
     return{
-        setOptions: (position) => dispatch(actions.showOptions(position))
+        setOptions: (position) => dispatch(actions.handleOptionsShow(position))
     }
 }
 

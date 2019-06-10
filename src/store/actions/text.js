@@ -1,6 +1,7 @@
 import * as actionTypes from './actionTypes';
 
-export const showOptions = (textPosition) =>{
+export const handleOptionsShow = (textPosition) =>{
+    console.log('test');
     return {
         type: actionTypes.SHOW_OPTIONS,
         position: textPosition

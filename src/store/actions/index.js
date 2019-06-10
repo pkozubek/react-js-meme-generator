@@ -1,3 +1,3 @@
 export {
-    showOptions
+    handleOptionsShow
 } from './text.js';
