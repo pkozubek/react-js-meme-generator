@@ -1,6 +1,9 @@
 import React from 'react';
 import './Button.css';
 
+import {connect} from 'react-redux';
+import * as actions from '../../store/actions/index';
+
 const button = (props) =>{
     let button = null;
 
@@ -19,12 +22,25 @@ const button = (props) =>{
             </button>
             break;
         case('options'):
-            button = <button onClick = {props.click} className = 'Options'>
+            button = <button onClick = {props.setOptions} className = 'Options'>
                 <i className="fa fa-cog"></i>
+            </button>
+            break;
+        default:
+            button = <button 
+            onClick = {props.click}
+            className = 'Cancel'>
+                <i className="fa fa-times-circle"></i>
             </button>
             break;
     }
     return button;
 }
 
-export default button;
+const mapDispatchToProps = dispatch =>{
+    return{
+        setOptions: (position) => dispatch(actions.showOptions(position))
+    }
+}
+
+export default connect(null,mapDispatchToProps)(button);

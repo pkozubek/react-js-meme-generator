@@ -28,20 +28,8 @@ main{
     text-align: center;
 }
 
-.customization{
-    width: 40%;
-    display: inline-block;
-    vertical-align: top;
-}
-
 .visualization{
-    width: 60%;
+    width: 100%;
     display: inline-block;
 }
 
-input{
-    width: 160px;
-    height: 30px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-}

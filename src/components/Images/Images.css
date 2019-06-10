@@ -1,0 +1,9 @@
+.ImagesContainer{
+    width: 100%;
+    box-shadow: 0 0 25px lightgrey;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px 0;
+}

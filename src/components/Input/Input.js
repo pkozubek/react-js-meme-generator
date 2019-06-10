@@ -32,6 +32,19 @@ const input = (props)=>{
             input = COLORS.map((singleColor)=>{
                 return <ColorSquare color = {singleColor}/>
             })
+            break;
+        default: 
+        input = <div className = 'InputContainer'>
+        <Button 
+        type = 'options' 
+        click = {props.optionClick}/>
+        <input name = {props.name} className = 'InputWrite' placeholder = {props.description} value = {props.val} onChange = {props.change}>
+        </input>
+        <Button 
+        click = {props.delete}
+        type = 'cancel'/>
+        </div>
+        break;
     }
 
     return input;

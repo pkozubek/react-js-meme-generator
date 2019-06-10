@@ -19,7 +19,8 @@ class Modal extends React.Component {
             /> 
             <div className = {styles.Modal}
             style = {{transform: this.props.show ? 'translateY(0)' : 'translateY(-100)',
-                    opacity: this.props.show ? '1' : '0'}} >
+                    opacity: this.props.show ? '1' : '0',
+                    display: this.props.show ? 'block': 'none'}} >
                 {this.props.children} 
             </div> 
             </React.Fragment>

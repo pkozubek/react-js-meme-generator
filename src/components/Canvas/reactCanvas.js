@@ -1,8 +1,8 @@
 import React from "react";
 import './ReactCanvas.css';
 
-const WIDTH = 350;
-const HEIGHT = 350;
+//const WIDTH = 500;
+//const HEIGHT = 500;
 
 class ReactCanvas extends React.Component {
 
@@ -13,14 +13,14 @@ class ReactCanvas extends React.Component {
   }
 
   drawText = (text,y)=>{
-    let characterSize = 6;
-    let currentX = (WIDTH/2) - (text.length * characterSize);
+    let currentX = (this.props.width/2) ;
+    this.ctx.textAlign = "center"; 
     this.ctx.fillText(text,currentX,y);
     this.ctx.strokeText(text,currentX,y);
   }
  
   redrawCanvas = ()=>{
-    this.ctx.font = "30px Arial";
+    this.ctx.font = "30px Baloo Da";
     this.ctx.fillStyle = 'white';
     this.image.src = this.props.image;
     
@@ -32,8 +32,8 @@ class ReactCanvas extends React.Component {
   }
 
   componentDidMount(){
-    this.refs.canvas.width = WIDTH;
-    this.refs.canvas.height = HEIGHT;
+    this.refs.canvas.width = this.props.width;
+    this.refs.canvas.height = this.props.height;
     this.ctx = this.refs.canvas.getContext('2d');
 
     this.redrawCanvas();

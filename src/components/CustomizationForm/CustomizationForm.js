@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import Input from '../Input/Input'
 import Modal from '../Modal/Modal'
 
@@ -16,5 +16,7 @@ const customizationForm = (props) =>{
         </Modal>
     )
 }
+
+
 
 export default customizationForm;

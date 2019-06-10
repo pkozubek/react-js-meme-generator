@@ -1,0 +1,5 @@
+export const CHANGE_IMAGE = "CHANGE_IMAGE";
+
+export const SHOW_OPTIONS = "SHOW_OPTIONS";
+export const SET_TOP_OPTIONS = "SET_TOP_OPTIONS";
+export const SET_BOTTOM_OPTIONS = "SET_BOTTOM_OPTIONS";

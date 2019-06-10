@@ -60,13 +60,10 @@ class MainComponent extends React.Component {
   render(){
     return (
       <main>
-        <div className = 'customization'>      
           <Images 
             imageClick = {this.imageClickHandler} 
             imageArray = {imageCol} 
             currentlySelected = {this.state.currentlySelected}/>
-          <Button type = 'success'>Generate!</Button>
-        </div>
         <div className = 'visualization'>
           <Input
           name = 'topText'
@@ -94,6 +91,7 @@ class MainComponent extends React.Component {
           <CustomizationForm 
           show = {this.state.showOptions}
           click = {this.handleOptionsShow} />
+          <Button type = 'success'>Generate!</Button>
         </div>
       </main>
     )
