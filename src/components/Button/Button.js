@@ -22,7 +22,7 @@ const button = (props) =>{
             </button>
             break;
         case('options'):
-            button = <button onClick = {()=>props.setOptions('left')} className = 'Options'>
+            button = <button onClick = {()=>props.setOptions(props.position)} className = 'Options'>
                 <i className="fa fa-cog"></i>
             </button>
             break;

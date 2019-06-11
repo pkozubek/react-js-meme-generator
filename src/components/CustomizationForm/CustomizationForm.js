@@ -9,10 +9,10 @@ const customizationForm = (props) =>{
 
     return (
         <Modal show = {props.areOptionsVisible} click = {props.hideOptions}>
+            <h2>{props.optionPosition}</h2>
             <Input
             description = 'Top text size' 
-            type = 'range'
-            value = {1}/>
+            type = 'range'/>
             <Input
             type = 'color'
             />
@@ -22,7 +22,8 @@ const customizationForm = (props) =>{
 
 const mapStateToProps = state =>{
     return{
-        areOptionsVisible: state.areOptionsVisible
+        areOptionsVisible: state.areOptionsVisible,
+        optionPosition: state.optionPosition
     }
 }
 

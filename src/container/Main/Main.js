@@ -14,22 +14,16 @@ import Images from '../../components/Images/Images';
 import ReactCanvas from '../../components/Canvas/ReactCanvas';
 import CustomizationForm from '../../components/CustomizationForm/CustomizationForm'
 import Button from '../../components/Button/Button';
+import Info from '../../components/Info/Info';
+import {connect} from 'react-redux';
 
 const imageCol = [image1,image2,image3,image4,image5,image6];
 
 class MainComponent extends React.Component {
 
   state = {
-    currentlySelected : 0,
     topText: '',
     bottomText: ''
-  }
-  
-  imageClickHandler=(index)=>{
-    this.setState({
-        currentlySelected: index
-      }
-    )
   }
 
   handleInputChange = (event)=>{
@@ -52,42 +46,53 @@ class MainComponent extends React.Component {
   }
 
   render(){
+
+    let main = (<div className = 'visualization'>
+    <Input
+    name = 'topText'
+    position = 'Top'
+    type = 'input'
+    optionClick = {this.handleOptionsShow}
+    val = {this.state.topText}
+    change = {this.handleInputChange} 
+    delete = {()=>this.resetText('top')}
+    description = 'Top text'/>
+    <ReactCanvas 
+    width = '400'
+    height = '400'
+    topText = {this.state.topText}
+    bottomText = {this.state.bottomText}
+    />
+    <Input 
+    name = 'bottomText'
+    position = 'Bottom'
+    type = 'input'
+    optionClick = {this.handleOptionsShow} 
+    val = {this.state.bottomText}
+    delete = {()=>this.resetText('bottom')}
+    change = {this.handleInputChange}
+    description = 'Bottom text'/>
+    <CustomizationForm/>
+    <Button type = 'success'>Generate!</Button>
+    </div>);
+    
+    if(this.props.selectedImage === null){
+      main = <Info/>
+    }
+
     return (
       <main>
-          <Images 
-            imageClick = {this.imageClickHandler} 
-            imageArray = {imageCol} 
-            currentlySelected = {this.state.currentlySelected}/>
-        <div className = 'visualization'>
-          <Input
-          name = 'topText'
-          type = 'input'
-          optionClick = {this.handleOptionsShow}
-          val = {this.state.topText}
-          change = {this.handleInputChange} 
-          delete = {()=>this.resetText('top')}
-          description = 'Top text'/>
-          <ReactCanvas 
-          image = {imageCol[this.state.currentlySelected]}
-          width = '400'
-          height = '400'
-          topText = {this.state.topText}
-          bottomText = {this.state.bottomText}
-          />
-          <Input 
-          name = 'bottomText'
-          type = 'input'
-          optionClick = {this.handleOptionsShow} 
-          val = {this.state.bottomText}
-          delete = {()=>this.resetText('bottom')}
-          change = {this.handleInputChange}
-          description = 'Bottom text'/>
-          <CustomizationForm/>
-          <Button type = 'success'>Generate!</Button>
-        </div>
+          <Images imageArray = {imageCol}/>
+          {main}
       </main>
     )
   }
 }
 
-export default MainComponent;
+const mapStateToProps = state =>{
+  return{
+    selectedImage: state.image
+  }
+}
+
+export default connect(mapStateToProps)(MainComponent);
