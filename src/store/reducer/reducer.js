@@ -8,7 +8,8 @@ const initialState = {
     sizeBottom: 16,
     colorBottom: 'white',
     areOptionsVisible: false,
-    optionPosition: null
+    optionPosition: null,
+    saveImage: false
 }
 
 const reducer = (state = initialState, actions) =>{
@@ -24,7 +25,9 @@ const reducer = (state = initialState, actions) =>{
         case actionTypes.CHANGE_FONT_SIZE_BOTTOM:
             return updateObject(state,{sizeBottom: actions.fontSize})
         case actionTypes.CHANGE_FONT_SIZE_TOP:
-                return updateObject(state,{sizeTop: actions.fontSize})
+            return updateObject(state,{sizeTop: actions.fontSize})
+        case actionTypes.SAVE_IMAGE:
+            return updateObject(state,{saveImage: actions.isSaved})
         default:
             return state
     }

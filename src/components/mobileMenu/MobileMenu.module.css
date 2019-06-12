@@ -1,0 +1,37 @@
+.MobileMenu{
+    width: 100%;
+    background: black;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+}
+
+.MenuItem{
+    width: 50%;
+    height: 40px;
+    color: white;
+    text-decoration: none;
+}
+
+.MenuItem:hover{
+    background-color: rgb(83, 83, 83);
+    color: white;
+}
+
+.ActiveItem{
+    background-color: white;
+    color: black;
+    text-decoration: none;
+}
+
+.Logo{
+    margin-right: 5px;
+    font-size: 15px;
+}
+
+@media (min-width: 600px) {
+    .MobileMenu{
+        display: none;
+    }
+}

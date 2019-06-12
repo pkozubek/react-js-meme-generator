@@ -19,7 +19,7 @@ button{
 
 .Success{
     padding: 25px;
-    margin: 15px;
+    margin: 5px 0 45px 0;
 }
 
 .Success:hover{

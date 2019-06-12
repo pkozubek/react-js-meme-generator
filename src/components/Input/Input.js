@@ -27,18 +27,23 @@ const input = (props)=>{
         case 'range':
                 const rangeValue = props.optionPosition === 'Top' ? props.topFontSize : props.bottomFontSize;
 
-                input = <div>
-                <label>{props.description}</label>
+                input = <div className = 'InputContainer'>
+                <label className = 'descInput' >{props.description}</label>
                 <input
-                 type = 'range' 
+                 min = '5'
+                 max = '60'   
+                 type = 'range'
+                 value = {rangeValue} 
                  onChange = {(event)=>props.changeFontSize(event.target.value, props.optionPosition)}/>
-                {rangeValue}
+                <label className = 'descInput'>{rangeValue}</label>
             </div>
             break;
         case 'color':
-            input = COLORS.map((singleColor)=>{
+            input = <div className = 'InputContainer'>
+            {COLORS.map((singleColor)=>{
                 return <ColorSquare key = {singleColor} color = {singleColor}/>
-            })
+            })}
+            </div> 
             break;
         default: 
         input = <div className = 'InputContainer'>

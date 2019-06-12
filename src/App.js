@@ -6,6 +6,7 @@ import './App.css';
 import Menu from './components/Menu/Menu';
 import History from './container/History/History';
 import Main from './container/Main/Main';
+import MobileMenu from './components/mobileMenu/MobileMenu';
 
 class App extends Component {
   render() {
@@ -16,6 +17,7 @@ class App extends Component {
           <Route path="/" exact component={Main} />
           <Route path="/history" component={History}/>
         </Switch>
+        <MobileMenu/>
       </div> 
     );
   }

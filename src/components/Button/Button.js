@@ -16,7 +16,9 @@ const button = (props) =>{
             </button>
             break;
         case('success'):
-            button = <button className = 'Success'>
+            button = <button
+            onClick = {props.click}
+            className = 'Success'>
                 <i className="fa fa-save"></i>
                 <i>{props.children}</i>
             </button>

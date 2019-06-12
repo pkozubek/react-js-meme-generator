@@ -1,0 +1,27 @@
+.Info{
+    border-radius: 25px;
+    width: 50%;
+    box-shadow: 0 0 25px lightgray;
+    padding: 50px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+
+ol {
+    list-style: none;
+    counter-reset: my-awesome-counter;
+  }
+  ol li {
+    counter-increment: my-awesome-counter;
+  }
+  ol li::before {
+    content: counter(my-awesome-counter) ". ";
+    color: rgb(82, 36, 36);
+    font-weight: bold;
+  }
+
+@media (min-width: 600px) {
+    .Info{
+        font-size: 1.4em;
+    }
+}

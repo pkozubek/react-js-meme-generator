@@ -16,6 +16,7 @@ import CustomizationForm from '../../components/CustomizationForm/CustomizationF
 import Button from '../../components/Button/Button';
 import Info from '../../components/Info/Info';
 import {connect} from 'react-redux';
+import * as actions from '../../store/actions/index';
 
 const imageCol = [image1,image2,image3,image4,image5,image6];
 
@@ -45,9 +46,14 @@ class MainComponent extends React.Component {
     }
   }
 
+  saveImage = ()=>{
+    console.log('test');
+  }
+
   render(){
 
-    let main = (<div className = 'visualization'>
+    let main = (
+    <div className = 'visualization'>
     <Input
     name = 'topText'
     position = 'Top'
@@ -73,8 +79,12 @@ class MainComponent extends React.Component {
     change = {this.handleInputChange}
     description = 'Bottom text'/>
     <CustomizationForm/>
-    <Button type = 'success'>Generate!</Button>
-    </div>);
+    <Button 
+    type = 'success' 
+    click = {()=>this.props.saveImage(true)}>
+      Generate!</Button>
+    </div>
+    );
     
     if(this.props.selectedImage === null){
       main = <Info/>
@@ -89,10 +99,16 @@ class MainComponent extends React.Component {
   }
 }
 
+const mapDispatchToProps = dispatch =>{
+  return{
+    saveImage: (shouldBeSaved) => dispatch(actions.saveImage(shouldBeSaved))
+  }
+}
+
 const mapStateToProps = state =>{
   return{
     selectedImage: state.image
   }
 }
 
-export default connect(mapStateToProps)(MainComponent);
+export default connect(mapStateToProps,mapDispatchToProps)(MainComponent);

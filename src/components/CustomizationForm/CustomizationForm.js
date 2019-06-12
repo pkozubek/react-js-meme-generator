@@ -9,7 +9,7 @@ const customizationForm = (props) =>{
 
     return (
         <Modal show = {props.areOptionsVisible} click = {props.hideOptions}>
-            <h2>{props.optionPosition}</h2>
+            <h2>{props.optionPosition + ' Text Options: '}</h2>
             <Input
             description = 'Top text size' 
             type = 'range'/>

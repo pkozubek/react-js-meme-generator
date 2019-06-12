@@ -1,6 +1,7 @@
 import React from "react";
 import './ReactCanvas.css';
 import {connect} from 'react-redux';
+import * as actions from '../../store/actions/index';
 
 //const WIDTH = 500;
 //const HEIGHT = 500;
@@ -50,12 +51,30 @@ class ReactCanvas extends React.Component {
     this.redrawCanvas();
   }
 
+
+
   render() {
+
+    if(this.refs.canvas !== undefined && this.props.isSaved){
+      const img = this.refs.canvas.toDataURL("image/jpeg", 1.0);
+      const link = document.createElement('a');
+      link.download = "memeGeneratorImage.png";
+      link.href = img;
+      link.click();
+      this.props.saveImage(false);
+    }
+
     return (
       <div>
         <canvas ref="canvas"  />
       </div>
     );
+  }
+}
+
+const mapDispatchToProps = (dispatch) =>{
+  return{
+    saveImage: (shouldBeSaved) => dispatch(actions.saveImage(shouldBeSaved))
   }
 }
 
@@ -65,8 +84,9 @@ const mapStateToProps = (state)=>{
     colorTop: state.colorTop,
     colorBottom: state.colorBottom,
     topFontSize: state.sizeTop,
-    bottomFontSize: state.sizeBottom
+    bottomFontSize: state.sizeBottom,
+    isSaved: state.saveImage
   }
 }
 
-export default connect(mapStateToProps)(ReactCanvas);
+export default connect(mapStateToProps,mapDispatchToProps)(ReactCanvas);

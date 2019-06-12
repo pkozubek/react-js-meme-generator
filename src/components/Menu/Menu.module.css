@@ -7,6 +7,7 @@
 
 .Menu{
     width: 100%;
+    display: none;
     background-color: black;
     padding: 15px 0;
     box-sizing: border-box;
@@ -37,4 +38,10 @@
 .Logo{
     margin-right: 5px;
     font-size: 25px;
+}
+
+@media (min-width: 600px) {
+    .Menu{
+        display: block;
+    }
 }

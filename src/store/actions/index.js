@@ -4,5 +4,6 @@ export {
     changeFontSize
 } from './text.js';
 export{
-    changeImage
+    changeImage,
+    saveImage
 } from './image.js';

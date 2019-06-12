@@ -9,10 +9,21 @@
     padding: 5px;
     border: none;
     border-bottom: 1px solid black;
-    width: 25%;
+    width: 60%;
     text-align: center;
 }
 
 input{
     font-family: 'Baloo Da', cursive;
+    background: none;
+}
+
+.descInput{
+    margin: 0 10px;
+}
+
+@media (min-width: 600px) {
+    .InputWrite{
+        width: 25%; 
+    } 
 }
