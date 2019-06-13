@@ -8,10 +8,10 @@ const button = (props) =>{
     let button = null;
 
     switch(props.type){
-        case('cancel'):
+        case('reset'):
             button = <button 
             onClick = {props.click}
-            className = 'Cancel'>
+            className = 'Reset'>
                 <i className="fa fa-times-circle"></i>
             </button>
             break;
@@ -28,12 +28,16 @@ const button = (props) =>{
                 <i className="fa fa-cog"></i>
             </button>
             break;
-        default:
-            button = <button 
+        case('Confirm'):
+        case('Cancel'):
+            button = <button
             onClick = {props.click}
-            className = 'Cancel'>
-                <i className="fa fa-times-circle"></i>
+            className = {props.type}>
+                {props.children}
             </button>
+            break;
+        default:
+            button = null;
             break;
     }
     return button;

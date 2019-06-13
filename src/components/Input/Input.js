@@ -21,7 +21,7 @@ const input = (props)=>{
                 </input>
                 <Button 
                 click = {props.delete}
-                type = 'cancel'/>
+                type = 'reset'/>
             </div>
             break;
         case 'range':

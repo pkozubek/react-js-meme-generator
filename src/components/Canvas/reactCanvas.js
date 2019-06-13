@@ -62,6 +62,7 @@ class ReactCanvas extends React.Component {
       link.href = img;
       link.click();
       this.props.saveImage(false);
+      this.props.showHistoryConfirmation();
     }
 
     return (
@@ -74,7 +75,8 @@ class ReactCanvas extends React.Component {
 
 const mapDispatchToProps = (dispatch) =>{
   return{
-    saveImage: (shouldBeSaved) => dispatch(actions.saveImage(shouldBeSaved))
+    saveImage: (shouldBeSaved) => dispatch(actions.saveImage(shouldBeSaved)),
+    showHistoryConfirmation: () => dispatch(actions.showHistorySave())
   }
 }
 
@@ -85,7 +87,9 @@ const mapStateToProps = (state)=>{
     colorBottom: state.colorBottom,
     topFontSize: state.sizeTop,
     bottomFontSize: state.sizeBottom,
-    isSaved: state.saveImage
+    isSaved: state.saveImage,
+    topText: state.topText,
+    bottomText: state.bottomText
   }
 }
 

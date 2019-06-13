@@ -36,3 +36,17 @@ export const changeFontSize = (newFontSize, textPosition)=>{
         }
     }
 }
+
+export const changeTopText = (text)=>{
+    return{
+        type: actionTypes.CHANGE_TOP_TEXT,
+        newText: text
+    }
+}
+
+export const changeBottomText = (text)=>{
+    return{
+        type: actionTypes.CHANGE_BOTTOM_TEXT,
+        newText: text
+    }
+}

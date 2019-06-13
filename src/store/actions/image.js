@@ -13,3 +13,9 @@ export const saveImage = (shouldBeSaved)=>{
         isSaved: shouldBeSaved
     }
 }
+
+export const resetImage = ()=>{
+    return{
+        type: actionTypes.RESET_IMAGE
+    }
+}

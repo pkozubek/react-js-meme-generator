@@ -1,9 +1,15 @@
 export {
     handleOptionsShow,
     changeColor,
-    changeFontSize
+    changeFontSize,
+    changeBottomText,
+    changeTopText
 } from './text.js';
 export{
     changeImage,
-    saveImage
+    saveImage,
+    resetImage
 } from './image.js';
+export{
+    showHistorySave
+} from './history.js';

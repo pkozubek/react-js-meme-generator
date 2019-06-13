@@ -9,7 +9,10 @@ const initialState = {
     colorBottom: 'white',
     areOptionsVisible: false,
     optionPosition: null,
-    saveImage: false
+    saveImage: false,
+    isHistorySaveVisible: false,
+    topText: '',
+    bottomText: ''
 }
 
 const reducer = (state = initialState, actions) =>{
@@ -28,6 +31,14 @@ const reducer = (state = initialState, actions) =>{
             return updateObject(state,{sizeTop: actions.fontSize})
         case actionTypes.SAVE_IMAGE:
             return updateObject(state,{saveImage: actions.isSaved})
+        case actionTypes.SHOW_HISTORY_SAVE:
+            return updateObject(state,{isHistorySaveVisible: !state.isHistorySaveVisible})
+        case actionTypes.CHANGE_BOTTOM_TEXT:
+            return updateObject(state,{bottomText: actions.newText})        
+        case actionTypes.CHANGE_TOP_TEXT:
+            return updateObject(state,{topText: actions.newText})
+        case actionTypes.RESET_IMAGE:
+            return initialState;
         default:
             return state
     }

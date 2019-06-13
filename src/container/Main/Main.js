@@ -17,38 +17,11 @@ import Button from '../../components/Button/Button';
 import Info from '../../components/Info/Info';
 import {connect} from 'react-redux';
 import * as actions from '../../store/actions/index';
+import ConfirmationScreen from '../../components/ConfirmationScreen/ConfirmationScreen';
 
 const imageCol = [image1,image2,image3,image4,image5,image6];
 
 class MainComponent extends React.Component {
-
-  state = {
-    topText: '',
-    bottomText: ''
-  }
-
-  handleInputChange = (event)=>{
-    this.setState({
-      [event.target.name] : event.target.value
-    });
-   }
-
-  resetText = (place)=>{
-    if(place === 'top'){
-      this.setState({
-        topText:  ''
-      });
-    }
-    if(place === 'bottom'){
-      this.setState({
-        bottomText:  ''
-      });
-    }
-  }
-
-  saveImage = ()=>{
-    console.log('test');
-  }
 
   render(){
 
@@ -58,27 +31,24 @@ class MainComponent extends React.Component {
     name = 'topText'
     position = 'Top'
     type = 'input'
-    optionClick = {this.handleOptionsShow}
-    val = {this.state.topText}
-    change = {this.handleInputChange} 
-    delete = {()=>this.resetText('top')}
+    val = {this.props.topText}
+    change = {(event)=>this.props.changeTopText(event.target.value)} 
+    delete = {()=>this.props.changeTopText('')}
     description = 'Top text'/>
     <ReactCanvas 
     width = '400'
     height = '400'
-    topText = {this.state.topText}
-    bottomText = {this.state.bottomText}
     />
     <Input 
     name = 'bottomText'
     position = 'Bottom'
     type = 'input'
-    optionClick = {this.handleOptionsShow} 
-    val = {this.state.bottomText}
-    delete = {()=>this.resetText('bottom')}
-    change = {this.handleInputChange}
+    val = {this.props.bottomText}
+    delete = {()=>this.props.changeBottomText('')}
+    change = {(event)=>this.props.changeBottomText(event.target.value)}
     description = 'Bottom text'/>
     <CustomizationForm/>
+    <ConfirmationScreen/>
     <Button 
     type = 'success' 
     click = {()=>this.props.saveImage(true)}>
@@ -101,13 +71,17 @@ class MainComponent extends React.Component {
 
 const mapDispatchToProps = dispatch =>{
   return{
-    saveImage: (shouldBeSaved) => dispatch(actions.saveImage(shouldBeSaved))
+    saveImage: (shouldBeSaved) => dispatch(actions.saveImage(shouldBeSaved)),
+    changeTopText: (text)=> dispatch(actions.changeTopText(text)),
+    changeBottomText: (text)=>dispatch(actions.changeBottomText(text))
   }
 }
 
 const mapStateToProps = state =>{
   return{
-    selectedImage: state.image
+    selectedImage: state.image,
+    topText: state.topText,
+    bottomText: state.bottomText
   }
 }
 
