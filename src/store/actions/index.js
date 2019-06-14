@@ -8,8 +8,11 @@ export {
 export{
     changeImage,
     saveImage,
+    saveImageRequest,
     resetImage
 } from './image.js';
 export{
-    showHistorySave
+    showHistorySave,
+    saveToHistory,
+    fetchHistory
 } from './history.js';

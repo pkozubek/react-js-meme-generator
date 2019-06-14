@@ -31,6 +31,7 @@ const button = (props) =>{
         case('Confirm'):
         case('Cancel'):
             button = <button
+            disabled = {props.disabled}
             onClick = {props.click}
             className = {props.type}>
                 {props.children}

@@ -7,9 +7,14 @@ import {BrowserRouter} from 'react-router-dom';
 import 'font-awesome/css/font-awesome.min.css';
 import {Provider} from 'react-redux';
 import reducer from './store/reducer/reducer';
-import {createStore} from 'redux';
+import {createStore, compose, applyMiddleware} from 'redux';
+import thunk from 'redux-thunk';
 
-const store = createStore(reducer);
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(reducer,composeEnhancers(
+    applyMiddleware(thunk)
+));
 
 const app = <Provider store = {store}><BrowserRouter  basename={process.env.PUBLIC_URL}><App/></BrowserRouter></Provider>
 

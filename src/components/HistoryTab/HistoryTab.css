@@ -1,0 +1,29 @@
+.HistoryTab{
+    background: black;
+    margin: 25px auto;
+    width: 80%;
+    box-shadow: 0 0 25px black;
+    border-radius: 4px;
+}
+
+.HistoryTab canvas{
+    width: 95%;
+    border-radius: 4px;
+}
+
+.HistoryTab h3{
+    color: white;
+    padding: 5px;
+    background: black;
+    border-radius: 25px;
+}
+
+@media (min-width: 600px) {
+    .HistoryTab{
+        width: 425px;
+    }
+
+    .HistoryTab canvas{
+        height: 360px; 
+    }
+}

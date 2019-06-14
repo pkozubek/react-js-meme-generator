@@ -5,21 +5,26 @@
 }
 
 .InputWrite{
-    margin: 0 auto;
-    padding: 5px;
-    border: none;
-    border-bottom: 1px solid black;
     width: 60%;
-    text-align: center;
+}
+
+.descInput{
+    margin: 0 10px;
 }
 
 input{
     font-family: 'Baloo Da', cursive;
     background: none;
+    border: none;
+    border-bottom: 1px solid black;
+    margin: 0 auto;
+    padding: 5px;
+    text-align: center;
 }
 
-.descInput{
-    margin: 0 10px;
+.SimpleInput{
+    display: block;
+    margin: 10px auto;
 }
 
 @media (min-width: 600px) {

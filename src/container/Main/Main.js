@@ -23,6 +23,8 @@ const imageCol = [image1,image2,image3,image4,image5,image6];
 
 class MainComponent extends React.Component {
 
+ 
+
   render(){
 
     let main = (
@@ -38,6 +40,14 @@ class MainComponent extends React.Component {
     <ReactCanvas 
     width = '400'
     height = '400'
+    bottomText = {this.props.bottomText}
+    topText = {this.props.topText}
+    topFontSize = {this.props.topFontSize}
+    bottomFontSize = {this.props.bottomFontSize}
+    colorBottom = {this.props.colorBottom}
+    colorTop = {this.props.colorTop}
+    selectedImage = {this.props.selectedImage}
+    isSaved = {this.props.isSaved}
     />
     <Input 
     name = 'bottomText'
@@ -51,7 +61,7 @@ class MainComponent extends React.Component {
     <ConfirmationScreen/>
     <Button 
     type = 'success' 
-    click = {()=>this.props.saveImage(true)}>
+    click = {this.props.saveImageRequest}>
       Generate!</Button>
     </div>
     );
@@ -71,7 +81,7 @@ class MainComponent extends React.Component {
 
 const mapDispatchToProps = dispatch =>{
   return{
-    saveImage: (shouldBeSaved) => dispatch(actions.saveImage(shouldBeSaved)),
+    saveImageRequest: () => dispatch(actions.saveImageRequest()),
     changeTopText: (text)=> dispatch(actions.changeTopText(text)),
     changeBottomText: (text)=>dispatch(actions.changeBottomText(text))
   }
@@ -79,9 +89,14 @@ const mapDispatchToProps = dispatch =>{
 
 const mapStateToProps = state =>{
   return{
-    selectedImage: state.image,
     topText: state.topText,
-    bottomText: state.bottomText
+    bottomText: state.bottomText,
+    selectedImage: state.image,
+    colorTop: state.colorTop,
+    colorBottom: state.colorBottom,
+    topFontSize: state.sizeTop,
+    bottomFontSize: state.sizeBottom,
+    isSaved: state.saveImage,
   }
 }
 

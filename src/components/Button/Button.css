@@ -17,8 +17,8 @@ button{
 }
 
 .Confirm{
-    width: 60px;
-    height: 60px;
+    width: auto;
+    height: auto;
     background: green;
     color: white;
     padding: 5px;
@@ -27,14 +27,24 @@ button{
     transition: 0.2s;
 }
 
+.Confirm:disabled{
+    background: lightgray;
+    cursor: not-allowed;
+}
+
+.Confirm:disabled:hover{
+    background: gray;
+}
+
 .Confirm:hover{
     background: darkgreen;
     transition: 0.2s;
 }
 
 .Cancel{
-    width: 40px;
-    height: 40px;
+    width: auto;
+    height: auto;
+    font-size: 0.8em;
     background: red;
     color: white; 
     padding: 5px;

@@ -45,19 +45,17 @@ const input = (props)=>{
             })}
             </div> 
             break;
+        case 'simpleInput':
+            input = <input 
+            name = {props.name} 
+            className = 'SimpleInput' 
+            placeholder = {props.description} 
+            value = {props.val} 
+            onChange = {props.change}/>
+            break;
         default: 
-        input = <div className = 'InputContainer'>
-        <Button 
-        type = 'options' 
-        position = {props.position}
-        />
-        <input name = {props.name} className = 'InputWrite' placeholder = {props.description} value = {props.val} onChange = {props.change}>
-        </input>
-        <Button 
-        click = {props.delete}
-        type = 'cancel'/>
-        </div>
-        break;
+            input = <input name = {props.name} className = 'InputWrite' placeholder = {props.description} value = {props.val} onChange = {props.change}/>
+            break;
     }
 
     return input;

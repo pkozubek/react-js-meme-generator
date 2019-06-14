@@ -7,10 +7,16 @@ export const changeImage = (newImage)=>{
     }
 }
 
-export const saveImage = (shouldBeSaved)=>{
+export const saveImageRequest = ()=>{
+    console.log('test');
     return{
-        type: actionTypes.SAVE_IMAGE,
-        isSaved: shouldBeSaved
+        type: actionTypes.SAVE_IMAGE_REQUEST,
+    }
+}
+
+export const saveImage = () =>{
+    return{
+        type: actionTypes.SAVE_IMAGE
     }
 }
 
