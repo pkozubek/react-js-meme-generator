@@ -1,0 +1,21 @@
+{
+  "main.css": "/react-js-meme-generator/static/css/main.1114c080.chunk.css",
+  "main.js": "/react-js-meme-generator/static/js/main.67c9a472.chunk.js",
+  "main.js.map": "/react-js-meme-generator/static/js/main.67c9a472.chunk.js.map",
+  "runtime~main.js": "/react-js-meme-generator/static/js/runtime~main.294ea5ab.js",
+  "runtime~main.js.map": "/react-js-meme-generator/static/js/runtime~main.294ea5ab.js.map",
+  "static/css/2.dc79e245.chunk.css": "/react-js-meme-generator/static/css/2.dc79e245.chunk.css",
+  "static/js/2.6211fd9f.chunk.js": "/react-js-meme-generator/static/js/2.6211fd9f.chunk.js",
+  "static/js/2.6211fd9f.chunk.js.map": "/react-js-meme-generator/static/js/2.6211fd9f.chunk.js.map",
+  "index.html": "/react-js-meme-generator/index.html",
+  "precache-manifest.c0da7ae3e8ee7c96a56c526672efba1e.js": "/react-js-meme-generator/precache-manifest.c0da7ae3e8ee7c96a56c526672efba1e.js",
+  "service-worker.js": "/react-js-meme-generator/service-worker.js",
+  "static/css/2.dc79e245.chunk.css.map": "/react-js-meme-generator/static/css/2.dc79e245.chunk.css.map",
+  "static/css/main.1114c080.chunk.css.map": "/react-js-meme-generator/static/css/main.1114c080.chunk.css.map",
+  "static/media/font-awesome.min.css": "/react-js-meme-generator/static/media/fontawesome-webfont.fee66e71.woff",
+  "static/media/fry.jpg": "/react-js-meme-generator/static/media/fry.452b990b.jpg",
+  "static/media/jobs.jpg": "/react-js-meme-generator/static/media/jobs.4e18f328.jpg",
+  "static/media/phone.jpg": "/react-js-meme-generator/static/media/phone.11cac8cf.jpg",
+  "static/media/sad.jpg": "/react-js-meme-generator/static/media/sad.1581f5fa.jpg",
+  "static/media/wonka.jpg": "/react-js-meme-generator/static/media/wonka.f2424730.jpg"
+}
