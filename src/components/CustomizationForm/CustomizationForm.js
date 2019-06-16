@@ -11,7 +11,7 @@ const customizationForm = (props) =>{
         <Modal show = {props.areOptionsVisible} click = {props.hideOptions}>
             <h2>{props.optionPosition + ' Text Options: '}</h2>
             <Input
-            description = 'Top text size' 
+            description = {props.optionPosition + ' text size'} 
             type = 'range'/>
             <Input
             type = 'color'

@@ -3,9 +3,6 @@ import './ReactCanvas.css';
 import {connect} from 'react-redux';
 import * as actions from '../../store/actions/index';
 
-//const WIDTH = 500;
-//const HEIGHT = 500;
-
 class ReactCanvas extends React.Component {
 
   constructor(){
@@ -51,10 +48,7 @@ class ReactCanvas extends React.Component {
     this.redrawCanvas();
   }
 
-
-
   render() {
-
     if(this.refs.canvas !== undefined && this.props.isSaved){
       const img = this.refs.canvas.toDataURL("image/jpeg", 1.0);
       const link = document.createElement('a');
