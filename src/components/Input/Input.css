@@ -1,6 +1,6 @@
 .InputContainer{
-    margin: 10px auto;
-    width: 80%;
+    margin: 5% auto;
+    width: 95%;
     text-align: center;
 }
 
@@ -28,6 +28,12 @@ input{
 }
 
 @media (min-width: 600px) {
+    .InputContainer{
+        margin: 15px auto;
+        width: 70%;
+        text-align: center;
+    }
+
     .InputWrite{
         width: 25%; 
     } 

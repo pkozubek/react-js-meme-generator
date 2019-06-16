@@ -7,8 +7,8 @@ const colorSquare = (props)=>{
     const squareStyle = {
         background: props.color,
         border: '1px solid black',
-        width: '25px',
-        height: '25px',
+        width: '30px',
+        height: '30px',
         margin: '5px',
         display: 'inline-block'
     }
