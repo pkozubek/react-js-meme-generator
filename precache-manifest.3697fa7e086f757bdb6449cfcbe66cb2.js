@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/react-js-meme-generator/static/media/phone.11cac8cf.jpg"
   },
   {
-    "revision": "260b956ae018c48e231b",
+    "revision": "0c27e55dcb536ae3bb12",
     "url": "/react-js-meme-generator/static/css/main.19e247fc.chunk.css"
   },
   {
@@ -32,8 +32,8 @@ self.__precacheManifest = [
     "url": "/react-js-meme-generator/static/media/jobs.4e18f328.jpg"
   },
   {
-    "revision": "260b956ae018c48e231b",
-    "url": "/react-js-meme-generator/static/js/main.0a702c15.chunk.js"
+    "revision": "0c27e55dcb536ae3bb12",
+    "url": "/react-js-meme-generator/static/js/main.3d8e3e7d.chunk.js"
   },
   {
     "revision": "f242473074cfb69336b55fb1d5c3fc37",
@@ -60,7 +60,7 @@ self.__precacheManifest = [
     "url": "/react-js-meme-generator/static/css/2.a62f9b92.chunk.css"
   },
   {
-    "revision": "3fee0f0b3e53ef40984fbf6f4b679e7d",
+    "revision": "2664d5db5392955b521af7bfba7c264e",
     "url": "/react-js-meme-generator/index.html"
   }
 ];
